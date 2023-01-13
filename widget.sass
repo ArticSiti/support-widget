@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;560;700&display=swap')
+
+body
+  margin: 0
+  padding: 0
+  position: relative
+  background-color: #444
+
+@keyframes pulse
+  from
+    opacity: 1
+    transform: scale(1.1, 1.1)
+  to
+    opacity: 0
+    transform: scale(1.7, 1.7)
+
+.whatsapp-btn
+  position: fixed
+  bottom: 30px
+  right: 30px
+  height: 60px
+  width: 60px
+  display: flex
+  align-items: center
+  justify-content: center
+  border-radius: 50%
+  background-color: #408A7E
+  cursor: pointer
+  transition: all 200ms ease-in-out
+  z-index: 999
+  svg
+    width: 36px
+    height: 36px
+  .pulse-button__rings
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    width: auto
+    height: auto
+    border: 2px solid #408A7E
+    border-radius: 50%
+    animation-name: pulse
+    animation-duration: 2.0s
+    animation-iteration-count: infinite
+    z-index: -1
+
+
+
+
+
+.whatsapp-widget
+  position: fixed
+  bottom: 30px
+  right: 30px
+  max-width: 300px
+  width: 100%
+  font-size: 14px
+  font-family: 'Roboto', sans-serif
+  display: flex
+  flex-direction: column
+  border-radius: 10px
+  box-shadow: 0 0 2px 0 #7a7a7a
+  user-select: none
+  overflow: hidden
+  opacity: 0
+  visibility: hidden
+  transition: all 200ms ease-in-out
+  z-index: 999
+  &.active
+    bottom: 120px
+    opacity: 1
+    visibility: visible
+  &__header
+    padding: 15px 17px
+    position: relative
+    color: #fff
+    display: flex
+    align-items: center
+    gap: 15px
+    background-color: #408A7E
+    .close
+      width: 30px
+      height: 30px
+      position: absolute
+      top: 10px
+      right: 10px
+      cursor: pointer
+      path
+        transition: all 100ms ease-in-out
+      &:hover
+        path
+          fill: #fff
+    .img
+      width: 48px
+      height: 48px
+      position: relative
+      &:after
+        content: ""
+        width: 12px
+        height: 12px
+        position: absolute
+        bottom: 0
+        right: 0
+        display: block
+        background-color: #62BD4D
+        border: 2px solid #408A7E
+        border-radius: 50%
+        box-sizing: border-box
+        z-index: 1111
+      img
+        width: inherit
+        height: inherit
+        object-fit: cover
+        border-radius: 50%
+    .info
+      .author
+        margin: 0
+        font-weight: bold
+      .work-time
+        color: #CADEDB
+        margin: 6px 0 0
+  &__body
+    min-height: 150px
+    padding: 20px 17px
+    background-color: #999
+    background-image: url("wh_wallpaper.png")
+    background-repeat: no-repeat
+    background-size: cover
+    .message
+      padding: 12px
+      max-width: 85%
+      width: 100%
+      background-color: #fff
+      box-sizing: border-box
+      &_left
+        border-radius: 10px 10px 10px 0
+      &_author
+        margin: 0
+        color: #919191
+        font-weight: 500
+      &_content
+        margin: 8px 0 0
+        color: #212121
+        line-height: 1.4
+  &__footer
+    padding: 17px
+    color: #fff
+    background-color: #EDEDED
+  &__btn
+    padding: 14px 0
+    max-width: 100%
+    color: #fff
+    display: flex
+    align-items: center
+    gap: 8px
+    justify-content: center
+    border-radius: 15px
+    background-color: #6BA39A
+    text-decoration: none
+    transition: all 100ms ease-in-out
+    &:hover
+      background-color: #408A7E
+
+
+
+@media (max-width: 576px)
+  .whatsapp-btn
+    width: 50px
+    height: 50px
+    bottom: 20px
+    right: 20px
+    .pulse-button__rings
+      animation-name: none
+    svg
+      width: 28px
+      height: 28px
+
+  .whatsapp-widget
+    max-width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    &__body
+      height: 100vh
